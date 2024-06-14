@@ -9,7 +9,7 @@ export function NavbarCompo() {
     },
     {
       path: "/about",
-      title: "about"
+      title: "About"
     },
     {
       path: "/product",

@@ -7,6 +7,7 @@ import { About } from './pages/About.jsx'
 import { Product } from './pages/Product.jsx'
 import MainLayout from './components/MainLayout.jsx'
 import { Service } from './pages/Service.jsx'
+import { ProductDetail } from './pages/ProductDetail.jsx'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/service',
         element: <Service/>
+      },
+      {
+        path: '/product-detail',
+        element: <ProductDetail/>
       },
     ]
   },

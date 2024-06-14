@@ -4,15 +4,16 @@ import { ButtonCompo } from './components/ButtonCompo';
 // import { CardCompo } from './components/CardCompo';
 import { ListGroup } from 'flowbite-react';
 import { LoadingCompo } from './components/LoadingCompo';
+import { BASE_URL } from './utils/baseUrl';
 
-const CardCompo = lazy(() => import("./components/CardCompo"));
+const CardCompo = lazy(() => import("./components/Cards/CardCompo"));
 
 function App() {
   
   const [count ,setCount] = useState(0);
   const [email, setEmail] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const BASE_URL = "https://dummyjson.com/";
+  
   const [user, setUsers] = useState([]); 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -80,16 +81,25 @@ function App() {
         // isLoading ? <LoadingCompo/>
         // :
 
-        <Suspense fallback={<LoadingCompo/>}>
-          {
+        // <Suspense fallback={<LoadingCompo/>}>
+        //   {
+        //     user.map((user) => (
+        //       <div key={user?.id}>
+        //         {/* {user.firstName} {user.lastName} */}
+        //         <CardCompo profile={user.image} lastName={user.lastName}/>
+        //       </div>          
+        //     ))
+        //   }
+        // </Suspense>
+        isLoading ? (<LoadingCompo/>)
+        : (
             user.map((user) => (
               <div key={user?.id}>
                 {/* {user.firstName} {user.lastName} */}
                 <CardCompo profile={user.image} lastName={user.lastName}/>
               </div>          
             ))
-          }
-        </Suspense>
+        )
       }
        </div>
 
