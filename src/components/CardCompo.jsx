@@ -1,7 +1,7 @@
 
 import { Card, Dropdown } from "flowbite-react";
 
-export function CardCompo({profile, lastName}) {
+export default function CardCompo({profile, lastName}) {
   return (
     <Card className="max-w-sm">
       <div className="flex justify-end px-4 pt-4">

@@ -1,9 +1,26 @@
 
-"use client";
-
-import { Navbar } from "flowbite-react";
-
+import { Navbar} from "flowbite-react";
+import { NavLink } from "react-router-dom";
 export function NavbarCompo() {
+  const menuList=[
+    {
+      path: "/",
+      title: "Home"
+    },
+    {
+      path: "/about",
+      title: "about"
+    },
+    {
+      path: "/product",
+      title: "Product"
+    },
+    {
+      path: "/service",
+      title: "Service"
+    },
+  ]
+
   return (
     <Navbar fluid rounded>
       <Navbar.Brand href="https://flowbite-react.com">
@@ -12,7 +29,16 @@ export function NavbarCompo() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="#" active>
+        {
+          menuList.map((menu, index) => (
+            <NavLink to={menu.path} key={index} className={({isActive}) => (
+              isActive ? "text-blue-600" : "text-black"
+            )}>
+              {menu.title}
+            </NavLink>
+          ))
+        }
+        {/* <Navbar.Link href="#" active>
           Home
         </Navbar.Link>
         <Navbar.Link  href="#">
@@ -20,7 +46,7 @@ export function NavbarCompo() {
         </Navbar.Link>
         <Navbar.Link href="#">Services</Navbar.Link>
         <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Contact</Navbar.Link>
+        <Navbar.Link href="#">Contact</Navbar.Link> */}
       </Navbar.Collapse>
     </Navbar>
   );
